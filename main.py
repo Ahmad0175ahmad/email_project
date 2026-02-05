@@ -15,7 +15,7 @@ from version import VERSION
 
 # 1. SETUP LOGGING & OBSERVABILITY (Cite: 382, 384)
 # This sends all your logs directly to Application Insights
-configure_azure_monitor()
+#configure_azure_monitor()
 logger = logging.getLogger("email_project")
 
 def handle_shutdown(signum, frame):
