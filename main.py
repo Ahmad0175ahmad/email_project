@@ -43,7 +43,7 @@ def main():
         http_client=httpx.Client(proxies={}) # This explicitly disables the proxy argument that causes the crash
     )
 
-    # Load AI Logic
+    # Load AI Logic.
     clustering = EmailClustering(client)
     classifier = IntentClassifierL3(client)
 
