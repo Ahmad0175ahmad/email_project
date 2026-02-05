@@ -17,20 +17,24 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install uv and dependencies
+      - name: Install dependencies
         run: |
-          curl -LsSf https://astral.sh/uv/install.sh | sh
-          uv pip install --system -r requirements.txt # cite: 364, 365
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt # cite: 122, 182
 
       - name: Run Mandatory Accuracy Gate
         run: |
-          python -m pytest tests/test_model.py # Use 'python -m' to locate the pytest module
+          python -m pytest tests/test_model.py # cite: 332, 399
 
       - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
         with:
           name: python-app
-          path: .
+          path: |
+            .
+            !antenv/
+            !venv/
+            !.venv/
 
   deploy:
     runs-on: ubuntu-latest
@@ -52,8 +56,8 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_FA013D9D8615494EB4C50F9992BD4229 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_A85D5F40FED34204B392F587FF63006A }}
 
-      - name: Deploy to Azure Web App
+      - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'webappemail34'
-          package: .
+          package: . # cite: 179, 184
