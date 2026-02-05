@@ -8,3 +8,4 @@ azure-storage-blob==12.19.0
 azure-storage-queue==12.9.0
 azure-monitor-opentelemetry==1.2.0
 pytest==7.4.0
+azure-identity
