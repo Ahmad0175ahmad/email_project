@@ -12,7 +12,7 @@ from src.worker import EmailWorker
 from src.model_logic import EmailClustering
 from src.intent_classifier import IntentClassifierL3
 from version import VERSION
-
+import httpx
 # 1. SETUP LOGGING & OBSERVABILITY (Cite: 382, 384)
 # This sends all your logs directly to Application Insights
 #configure_azure_monitor()
@@ -34,7 +34,7 @@ def main():
     credential = DefaultAzureCredential()
     
     # Azure OpenAI Client (Key is pulled from Key Vault/App Settings)
-    import httpx # Ensure this is imported at the top of main.py
+     # Ensure this is imported at the top of main.py
 
     client = AzureOpenAI(
         api_key=os.getenv("AZURE_OPENAI_API_KEY"),
