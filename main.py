@@ -34,7 +34,7 @@ def main():
     credential = DefaultAzureCredential()
     
     # Azure OpenAI Client (Key is pulled from Key Vault/App Settings)
-     # Ensure this is imported at the top of main.py
+     # Ensure this is imported at the top of main.py.
 
   # Azure OpenAI Client
     client = AzureOpenAI(
@@ -62,3 +62,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
