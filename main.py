@@ -50,7 +50,7 @@ def main():
     classifier = IntentClassifierL3(client)
 
     # 3. START THE WORKER (Cite: 371, 388)
-    # This loop runs forever polling the queue
+    # This loop runs forever polling the queue.
     worker = EmailWorker(
         queue_url=os.getenv("QUEUE_URL"),
         clustering_engine=clustering,
