@@ -24,7 +24,7 @@ jobs:
 
       - name: Run Mandatory Accuracy Gate
         run: |
-          pytest tests/test_model.py # Must be > 80% to pass (cite: 332, 399)
+          python -m pytest tests/test_model.py # Use 'python -m' to locate the pytest module
 
       - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
