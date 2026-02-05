@@ -36,11 +36,13 @@ def main():
     # Azure OpenAI Client (Key is pulled from Key Vault/App Settings)
      # Ensure this is imported at the top of main.py
 
+  # Azure OpenAI Client
     client = AzureOpenAI(
         api_key=os.getenv("AZURE_OPENAI_API_KEY"),
         api_version="2023-12-01-preview",
         azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-        http_client=httpx.Client(proxies={}) # This explicitly disables the proxy argument that causes the crash
+        # Use 'proxy' (singular) to ensure compatibility with modern httpx
+        http_client=httpx.Client(proxy=None) 
     )
 
     # Load AI Logic.
