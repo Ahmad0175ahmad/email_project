@@ -60,4 +60,4 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'webappemail34'
-          package: . # cite: 179, 184
+          package: . # cite: 179, 1845
